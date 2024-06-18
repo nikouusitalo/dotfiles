@@ -1,6 +1,6 @@
 
 #ALIAS
-
+alias music="ncmpcpp"
 #youtube download
 alias yta-aac="yt-dlp --extract-audio --audio-format aac "
 alias yta-best="yt-dlp --extract-audio --audio-format best "

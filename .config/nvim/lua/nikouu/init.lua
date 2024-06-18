@@ -1,6 +1,6 @@
-require("nikouu.remap")
-require("nikouu.set")
-require("nikouu.lazy_init")
-
-
-
+require("nikouu.lazy")
+require("nikouu.lsp")
+require("nikouu.treesitter")
+require("nikouu.telescope")
+require("nikouu.trouble")
+require("nikouu.dap")

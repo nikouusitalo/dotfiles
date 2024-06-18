@@ -53,7 +53,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
 ex ()

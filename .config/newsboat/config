@@ -1,5 +1,5 @@
 auto-reload yes
-macro v set browser "setsid -f mpv" ; open-in-browser ; set browser firefox
+macro v set browser "setsid -f mpv" ; open-in-browser ; set browser qutebrowser
 browser "qutebrowser %u"
 
 
