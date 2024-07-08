@@ -1,30 +1,7 @@
-zathura
-mpv
-ytfzf
-sway
-git
-qutebrowser
-w3m
-yt-dlp
-neovim
-mpd
-newsboat
-ncmpcpp
-wofi
-tmux
-foot
-unzip
-wget
-lf
-pass
-pass-otp
-gnome-keyring
-poppler
-simple-mtpfs
-task-spooler
-tesseract
-moreutilsi
-tesseract-data-eng
-fd
-jq
-openssh
+#!/bin/bash
+
+# Read the list of packages from the file
+mapfile -t packages < packages.txt
+
+# Install the packages
+sudo pacman -S --needed "${packages[@]}"
