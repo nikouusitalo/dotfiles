@@ -289,7 +289,7 @@ titlebar_border_thickness 1
 # Borders
 default_border pixel 1
 smart_borders on
-
-bindsym $mod+t [class="yolo"] scratchpad show; move position center
-
-exec --no-startup-id foot --class yolo,yolo 
+for_window [app_id="terminal"] move scratchpd;
+for_window [app_id="terminal"] move position center
+bindsym $mod+t [app_id="terminal"] scratchpad show; 
+exec --no-startup-id foot -a terminal

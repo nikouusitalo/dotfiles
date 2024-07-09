@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # dep rsync simple-mtp
-PHONE_DIR="$HOME/cell/media"
-PC_DIR="$HOME/yolo/"
+PHONE_DIR="$HOME/phone/Sisäinen jaettu tallennustila/media/"
+PC_DIR="/media/media/"
 # connect phone mount 
 #command simple-mtp --device 1 ~/cell/
 # check change and copy dir
