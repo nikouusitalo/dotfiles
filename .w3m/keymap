@@ -694,7 +694,7 @@ keymap  XN      EXTERN        '$BROWSER_PRIVATE'
 
 # queue download file (task-spooler)
 # keymap  xd      EXTERN_LINK   'TS_SOCKET=/tmp/w3m tsp aria2c -j 1 -x 2 -c -d ~/Downloads'
-keymap  yd      EXTERN_LINK   'youtube-dl -o "~/Downloads/%(title)s.%(ext)s"'
+keymap  yd      EXTERN_LINK   'yt-dlp -o "~/Downloads/%(title)s.%(ext)s"'
 keymap  xd      EXTERN_LINK   'diana add'
 keymap  XD      EXTERN_LINK   'diana --pause add'
 keymap  xD      SHELL         'diana-mui'
@@ -748,12 +748,12 @@ keymap  xv      SHELL         'vim $W3M_CURRENT_FORM'
 # Source: https://github.com/felipesaa/A-vim-like-firefox-like-configuration-for-w3m
 # paste and go
 keymap  px       GOTO          /usr/lib/w3m/cgi-bin/goto_clipboard.cgi
-keymap  PX       TAB_GOTO      /usr/lib/w3m/cgi-bin/goto_clipboard.cgi
+#keymap  PX       TAB_GOTO      /usr/lib/w3m/cgi-bin/goto_clipboard.cgi
 keymap  pp       GOTO          /usr/lib/w3m/cgi-bin/goto_tmux_clipboard.cgi
 keymap  PP       TAB_GOTO      /usr/lib/w3m/cgi-bin/goto_tmux_clipboard.cgi
 # retore closed tabs
-keymap  u       TAB_GOTO      /usr/lib/w3m/cgi-bin/restore_tab.cgi
-keymap  C-T     TAB_GOTO      /usr/lib/w3m/cgi-bin/restore_tab.cgi
+#keymap  u       TAB_GOTO      /usr/lib/w3m/cgi-bin/restore_tab.cgi
+#keymap  C-T     TAB_GOTO      /usr/lib/w3m/cgi-bin/restore_tab.cgi
 # close tabs and save url link to file
 keymap  d       COMMAND       "EXTERN 'echo %s >> ~/.w3m/RestoreTab.txt' ; CLOSE_TAB"
 # keymap  C-w     COMMAND       "EXTERN 'echo %s >> ~/.w3m/RestoreTab.txt' ; CLOSE_TAB"
@@ -780,7 +780,7 @@ keymap  xa      COMMAND       "SHELL ~/.w3m/cgi-bin/save_bookmark_surfraw.cgi"
 # keymap  xa      COMMAND       "EXTERN_LINK '(echo -n %s | xsel -b)' ; SHELL ~/.w3m/cgi-bin/save_bookmark.cgi"
 # keymap  XA      COMMAND       "EXTERN '(echo -n %s | xsel -b)' ; SHELL ~/.w3m/cgi-bin/save_bookmark.cgi"
 
-keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard_primary.cgi"
+keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; GOTO  ~/.w3m/cgi-bin/goto_clipboard_primary.cgi"
 keymap  XS      COMMAND       "SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; TAB_GOTO /usr/lib/w3m/cgi-bin/goto_clipboard_primary.cgi"
 # keymap  xs      COMMAND       "SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
 # keymap  XS      COMMAND       "SHELL ~/.w3m/cgi-bin/fzf_surfraw.cgi ; TAB_GOTO /usr/lib/w3m/cgi-bin/goto_clipboard.cgi"
@@ -807,11 +807,11 @@ keymap  \\\t    COMMAND       "SET_OPTION display_borders=toggle ; RESHAPE"
 keymap  \\\i    COMMAND       "SET_OPTION display_image=toggle ; RELOAD"
 keymap  \\\e    COMMAND       "SET_OPTION user_agent='' ; RELOAD"
 keymap  \\\a    COMMAND       "SET_OPTION user_agent='Opera/9.80 (S60; SymbOS; Opera Mobi/SYB-1107071606; U; en) Presto/2.8.149 Version/11.10' ; RELOAD"
-keymap  C-t     COMMAND       "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
-keymap  t       COMMAND       "TAB_GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
-keymap  sg      COMMAND       "TAB_GOTO https://google.com; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
-keymap  s1      COMMAND       "TAB_GOTO https://1337x.to; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
-keymap  sx      COMMAND       "TAB_GOTO https://stackexchange.com; GOTO_LINE 7; NEXT_LINK; GOTO_LINK"
+keymap  C-t     COMMAND       "GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
+keymap  t       COMMAND       "GOTO https://duckduckgo.com/lite/; NEXT_LINK; GOTO_LINK"
+keymap  sg      COMMAND       "GOTO https://google.com; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
+keymap  s1      COMMAND       "GOTO https://1337x.to; GOTO_LINE 6; NEXT_LINK; GOTO_LINK"
+keymap  sx      COMMAND       "GOTO https://stackexchange.com; GOTO_LINE 7; NEXT_LINK; GOTO_LINK"
 keymap  \\\?    COMMAND       "HELP; SEARCH User-Defined; CENTER_V"
 # keymap  \\\m    COMMAND       "SHELL 'man w3m'"
 keymap  \\\x    COMMAND       "LIST; SEARCH \.torrent$; EXTERN_LINK ~/.scripts/privatescripts/addtorrent-thinkcentre"
@@ -819,4 +819,4 @@ keymap  \\\m    COMMAND       "LIST; SEARCH magnet:\?; EXTERN_LINK ~/.scripts/pr
 
 # }}}
 # copy url to clipboard
-keymap yy EXTERN 'printf %s | xclip -selection clipboard'
+keymap yy EXTERN 'printf %s | wl-copy'

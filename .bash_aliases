@@ -28,5 +28,4 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias home='cd /media'
 alias yt="ytfzf"
-
-alias sd="cd ~ && cd \$(find * -type d | fzf)"
+alias sd='cd ~ && cd $(fd -t d -E "node_modules" -E ".git" | fzf)'

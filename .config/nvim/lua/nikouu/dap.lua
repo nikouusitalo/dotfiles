@@ -15,6 +15,7 @@ require("mason-nvim-dap").setup({
 	ensure_installed = {
 		-- Update this to ensure that you have the debuggers for the langs you want
 		"bash",
+		"codelldb",
 	},
 })
 vim.keymap.set("n", "<F5>", dap.continue, { desc = "Debug: Start/Continue" })
@@ -53,7 +54,36 @@ dap.configurations.sh = {
 		terminalKind = "integrated",
 	},
 }
+-- c++/c/rust
+dap.adapters.codelldb = {
+	type = "server",
+	port = "${port}",
+	executable = {
+		-- CHANGE THIS to your path!
+		command = os.getenv("HOME") .. "/.local/share/nvim/mason/bin/codelldb",
+		--command = os.getenv('HOME') .. '/.vscode/extensions/vadimcn.vscode-lldb-1.9.2/adapter/codelldb',
+		args = { "--port", "${port}" },
 
+		-- On windows you may have to uncomment this:
+		-- detached = false,
+	},
+}
+
+dap.configurations.cpp = {
+	{
+		name = "Launch file",
+		type = "codelldb",
+		request = "launch",
+		program = function()
+			return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+		end,
+		cwd = "${workspaceFolder}",
+		stopOnEntry = false,
+		terminal = "integrated",
+	},
+}
+
+dap.configurations.c = dap.configurations.cpp
 -- Dap UI setup
 -- For more information, see |:help nvim-dap-ui|
 dapui.setup({

@@ -47,7 +47,7 @@ active_color cyan
 visited_anchor 1
 visited_color magenta
 pagerline 10000
-use_history 1
+use_history 0
 history 100
 save_hist 1
 confirm_qq 1

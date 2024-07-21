@@ -1,3 +1,4 @@
+surfraw
 android-file-transfer
 man-db
 fzf

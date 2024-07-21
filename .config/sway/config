@@ -87,7 +87,7 @@ seat seat0 {
     hide_cursor 3000
 }
 
-    ### Key bindings
+### Key bindings
 #
 # Basics:
 #
@@ -193,7 +193,7 @@ workspace 10 output DP-3
     bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Return floating toggle
 
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
@@ -289,7 +289,42 @@ titlebar_border_thickness 1
 # Borders
 default_border pixel 1
 smart_borders on
-for_window [app_id="foot_terminal"]  move scratchpad
+#exec --no-startup-id foot -a music ncmpcpp
 
-bindsym $mod+t [app_id="foot_terminal"] scratchpad show; [app_id="foot_terminal"]move position center
-exec --no-startup-id foot -a foot_terminal
+set {
+  $oterm foot -a oterm tmux
+  $oterm_id oterm
+  $music_app foot -a music_app ncmpcpp 
+  
+  $music_id music_app
+  $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
+}
+for_window {
+ [app_id=$oterm_id] {
+  move to scratchpad
+    [app_id=$oterm_id] scratchpad show
+    $t_pos
+  }
+
+
+  [app_id=$music_id] {
+    move to scratchpad
+    [app_id=$music_id] scratchpad show
+    $t_pos
+  }
+
+}
+
+
+
+bindsym --to-code {
+  # Scratchpad bindsym
+  ## Main terminal
+  ## backup terminal
+  ## editor
+  $mod+t       exec swaymsg [app_id=$oterm_id] scratchpad show || exec $oterm, $t_pos
+  
+  $mod+m       exec swaymsg [app_id=$music_id] scratchpad show || exec $music_app, $t_pos
+
+}
+
