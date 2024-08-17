@@ -30,9 +30,10 @@ require("lazy").setup({
 			"L3MON4D3/LuaSnip",
 			"saadparwaiz1/cmp_luasnip",
 			"j-hui/fidget.nvim",
-			"L3MON4D3/LuaSnip",
 		},
 	},
+	{ "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+
 	{
 		"rcarriga/nvim-dap-ui",
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "jay-babu/mason-nvim-dap.nvim" },

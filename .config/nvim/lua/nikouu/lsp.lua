@@ -101,9 +101,10 @@ capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp"
 require("mason").setup()
 local servers = {
 	bashls = {},
-	-- clangd = {},
+	marksman = {},
+	clangd = {},
 	-- gopls = {},
-	-- pyright = {},
+	pyright = {},
 	--rust_analyzer = {},
 	-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 	--
@@ -215,5 +216,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "path" },
+		{ name = "buffer" },
 	},
 })
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.fn.stdpath("config") .. "/snippets" })

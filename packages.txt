@@ -1,3 +1,4 @@
+kitty
 surfraw
 android-file-transfer
 man-db

@@ -1,8 +1,9 @@
+sd_directories.txt
 other_install.sh
 arch_intall.sh
 packages.txt
 \.git
 \.gitignore
 \.gitmodules
-
+sdignore.txt
 .git

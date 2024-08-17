@@ -1,4 +1,3 @@
-
 #ALIAS
 alias music="ncmpcpp"
 #youtube download
@@ -27,5 +26,7 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias home='cd /media'
+alias tt='cd /media/media/time_management/'
+
 alias yt="ytfzf"
-alias sd='cd ~ && cd $(fd -t d -E "node_modules" -E ".git" | fzf)'
+

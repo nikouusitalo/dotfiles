@@ -1,5 +1,6 @@
+exec mpDris2
 exec mako
-exec udiskie —smart-tray
+exec udiskie &
 exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # Default config for sway
 #
@@ -12,14 +13,14 @@ input * {
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -81,6 +82,9 @@ bindsym $mod+g exec ~/.config/scripts/open_links.sh
 #
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym --locked XF86AudioPrev exec playerctl previous
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
 
 seat seat0 {
     fallback true
@@ -292,10 +296,11 @@ smart_borders on
 #exec --no-startup-id foot -a music ncmpcpp
 
 set {
-  $oterm foot -a oterm tmux
+  $oterm kitty --class  oterm tmux
   $oterm_id oterm
-  $music_app foot -a music_app ncmpcpp 
-  
+  $music_app kitty --class music_app ncmpcpp 
+  $firefox_app firefox --name firefox_app
+  $firefox_id firefox_app
   $music_id music_app
   $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
 }
@@ -312,6 +317,11 @@ for_window {
     [app_id=$music_id] scratchpad show
     $t_pos
   }
+ [app_id=$firefox_id] {
+    move to scratchpad
+    [app_id=$firefox_id] scratchpad show
+    $t_pos
+  }
 
 }
 
@@ -326,5 +336,9 @@ bindsym --to-code {
   
   $mod+m       exec swaymsg [app_id=$music_id] scratchpad show || exec $music_app, $t_pos
 
+  $mod+y       exec swaymsg [app_id=$firefox_id] scratchpad show || exec $firefox_app, $t_pos
+#btop?
+#w3m 
+#keybinds?
 }
 
