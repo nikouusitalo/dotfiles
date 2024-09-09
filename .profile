@@ -1,5 +1,5 @@
 export PATH=$PATH:$HOME/dotfiles//.config/scripts
-
+export PATH=$PATH:/usr/bin/python3
 export EDITOR="nvim"
 export READER="zathura"
 export VISUAL="nvim"
