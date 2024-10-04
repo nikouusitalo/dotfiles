@@ -1,3 +1,5 @@
+include /etc/sway/config.d/*
+exec --no-startup-id /usr/lib/xdg-desktop-portal -r
 exec_always nm-applet --indicator
 exec mpDris2
 exec mako

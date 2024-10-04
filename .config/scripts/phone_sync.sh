@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # dep rsync simple-mtp
-PHONE_DIR="$HOME/phone/Sisäinen jaettu tallennustila/media/"
+PHONE_DIR="$HOME/phone/SD-kortti: Samsung/media"
 PC_DIR="/media/media/"
 # connect phone mount 
 #command simple-mtp --device 1 ~/cell/
