@@ -3,8 +3,7 @@
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth::erasedups
-
+HISTCONTROL=ignoredups:ignorespace # Ignore duplicates and leading-space commands in history
 # append to the history file, don't overwrite it
 shopt -s histappend
 
@@ -15,7 +14,12 @@ HISTFILESIZE=2000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+shopt -s histappend 
+shopt -s cdspell
+bind "set completion-ignore-case on"
 
+
+# Append to history, don't overwrite
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar

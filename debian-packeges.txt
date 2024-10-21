@@ -1,3 +1,5 @@
+fzf
+python3-pip
 udiskie
 firefox-esr
 obs-studio

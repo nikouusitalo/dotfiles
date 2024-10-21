@@ -23,7 +23,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -284,9 +284,9 @@ smart_borders on
 #exec --no-startup-id foot -a music ncmpcpp
 
 set {
-  $oterm kitty --class  oterm tmux
+  $oterm alacritty --class  oterm tmux
   $oterm_id oterm
-  $music_app kitty --class music_app ncmpcpp 
+  $music_app alacritty --class music_app ncmpcpp 
   $firefox_app firefox --name firefox_app
   $firefox_id firefox_app
   $music_id music_app
@@ -325,9 +325,9 @@ bindsym --to-code {
   $mod+m       exec swaymsg [app_id=$music_id] scratchpad show || exec $music_app, $t_pos
 
   $mod+i       exec swaymsg [app_id=$firefox_id] scratchpad show || exec $firefox_app, $t_pos
-#btop?
 #w3m 
 #keybinds?
+
 }
 
 bindsym Print exec --no-startup-id grim ~/screenshots/screenshot_$(date +'%Y%m%d_%H%M%S_%N').png
