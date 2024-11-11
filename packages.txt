@@ -1,4 +1,15 @@
-kitty
+libinput
+wayland
+wlroots
+wayland-protocols
+pkgconf
+libxcb
+xcb-util-wm
+xorg-xwayland
+xorg-server
+xorg-xinit
+xorg-xrandr
+xorg-xsetroot
 surfraw
 android-file-transfer
 man-db
@@ -34,10 +45,6 @@ qt6-wayland
 rsync
 slurp
 swappy
-sway
-swaybg
-swayidle
-swaylock
 ttf-dejavu-nerd
 udiskie
 waybar
